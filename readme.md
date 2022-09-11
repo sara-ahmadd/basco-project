@@ -13,7 +13,7 @@ An application for house decorations.
 
 ### Design source:
 
-- (CSS Free Templates)[https://www.free-css.com/free-css-templates/page282/basco]
+- [CSS Free Templates](https://www.free-css.com/free-css-templates/page282/basco)
 
 #### Author
 
