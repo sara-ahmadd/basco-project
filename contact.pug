@@ -1,0 +1,17 @@
+extends ./index.pug
+block append cssStyle
+ link(rel='stylesheet' href='./css/contact.css')
+block pageContent
+   section.contact
+    .container
+      .title
+       h1 contact us
+      .form
+        form
+          input(type='text' placeholder='name')
+          input(type='text' placeholder='email')
+          input(type='text' placeholder='phone')
+          textarea(type='text' placeholder='message')
+          button send
+        .img 
+          img(src='./images/map.jpg')

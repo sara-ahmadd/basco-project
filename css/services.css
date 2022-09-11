@@ -1,0 +1,6 @@
+.services {
+  margin-bottom: 100px;
+}
+.services::after {
+  background-color: transparent;
+}/*# sourceMappingURL=services.css.map */

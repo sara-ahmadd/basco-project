@@ -1,0 +1,69 @@
+@use "./_vars.scss" as *;
+@use "./_mixins.scss" as *;
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: fit-content;
+  padding: 25px 30px;
+  margin: 0 auto;
+  align-content: center;
+  background-color: $main_color;
+  border-bottom: 2px solid #ffffff;
+  gap: 10px;
+  @include myMediaQueries(medium) {
+    flex-direction: column;
+    justify-content: center;
+  }
+  @include myMediaQueries(small) {
+    flex-direction: column;
+  }
+  @include myMediaQueries(mobile) {
+    flex-direction: column;
+  }
+  .navbar {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      align-items: baseline;
+      @include myMediaQueries(medium) {
+        justify-content: space-between;
+      }
+      @include myMediaQueries(small) {
+        justify-content: space-between;
+      }
+      @include myMediaQueries(mobile) {
+        flex-direction: column;
+      }
+      li {
+        @extend ul;
+        gap: 10px;
+        color: #ffffff;
+        &:nth-child(1) {
+          p {
+            a {
+              @include transition;
+              &:hover {
+                color: $sec_color;
+              }
+            }
+          }
+        }
+        cursor: pointer;
+      }
+    }
+    #login {
+      transition: all 0.4s linear;
+      &:hover {
+        color: $sec_color;
+      }
+    }
+    #email {
+      transition: all 0.4s linear;
+      &:hover {
+        color: $sec_color;
+      }
+    }
+  }
+}

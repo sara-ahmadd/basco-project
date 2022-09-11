@@ -1,0 +1,48 @@
+@use "contact.scss";
+@use "./sass/mixins" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .form {
+    width: 100%;
+    form {
+      width: 100%;
+      align-items: center;
+      text-transform: none;
+      div {
+        width: 70%;
+        input,
+        p {
+          width: 100%;
+        }
+        @include myMediaQueries(small) {
+          width: 100%;
+        }
+        @include myMediaQueries(mobile) {
+          width: 100%;
+        }
+      }
+      button {
+        width: 40%;
+      }
+      input[placeholder="name"].valid,
+      input[placeholder="email"].valid,
+      input[placeholder="password"].valid {
+        & + p {
+          display: none;
+        }
+        border: 3px solid green;
+      }
+      input[placeholder="name"].invalid,
+      input[placeholder="email"].invalid,
+      input[placeholder="password"].invalid {
+        & + p {
+          color: red;
+        }
+        border: 3px solid red;
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+extends ./contact.pug
+block append cssStyle
+  link(rel='stylesheet' href='./css/login.css')
+block pageContent
+  section.login
+     .container
+      .title
+       h1 login
+      .form
+        form
+          .name
+            input(type='text' placeholder='name' class='invalid')
+            p Name must be at least four characters(letters,numbers,underscore).
+          .email
+              input(type='text' placeholder='email' class='invalid')
+              p example@mail.com
+          .password
+              input(type='password' placeholder='password' class='invalid')
+              p Write at least 8 characters & maximum 30 characters.
+          button send

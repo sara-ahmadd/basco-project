@@ -1,0 +1,6 @@
+.services {
+  margin-bottom: 100px;
+  &::after {
+    background-color: transparent;
+  }
+}

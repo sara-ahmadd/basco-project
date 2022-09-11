@@ -1,0 +1,553 @@
+@use "./sass/_header.scss";
+@use "./sass/_footer.scss";
+@use "./sass/_vars.scss" as *;
+@use "./sass/_mixins.scss" as *;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+.side-bar {
+  display: flex;
+  justify-content: space-between;
+  @include transition;
+  position: fixed;
+  width: 40%;
+  z-index: 6;
+  left: 0;
+  top: 0;
+  background-color: #000;
+
+  height: 100vh;
+  .close {
+    padding: 20px;
+    svg {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      color: #ffffff;
+      @include transition;
+      &:hover {
+        color: $sec_color;
+      }
+    }
+  }
+  ul {
+    order: -1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px 20px;
+    li {
+      a {
+        display: block;
+        padding: 10px;
+        font-size: 20px;
+        text-transform: capitalize;
+        @include transition;
+        &:hover {
+          color: $sec_color;
+        }
+      }
+    }
+  }
+  left: -1000px;
+  &.active {
+    left: 0;
+  }
+}
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+.landing {
+  width: 100vw;
+  height: calc(100vh + 150px);
+  text-align: center;
+  background-image: url(../images/banner1.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  .container {
+    margin: 0 auto;
+    position: absolute;
+    padding: 0;
+    width: 70vw;
+    height: 90vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    .landing-content {
+      position: absolute;
+      height: calc(100%);
+      width: 200vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include transition;
+      .slider {
+        position: relative;
+        width: calc(200vw / 3);
+        height: fit-content;
+        margin-right: 7px;
+        .text {
+          background-color: #ffffff;
+          padding: 40px 20px;
+          margin: 0 50px;
+          @media (min-width: 1400px) {
+            margin: 0 70px;
+          }
+        }
+        p {
+          line-height: 1.5;
+          font-size: 20px;
+        }
+        h1 {
+          font-size: 50px;
+          margin-bottom: 20px;
+          @include myMediaQueries(small) {
+            font-size: 30px;
+          }
+          @include myMediaQueries(mobile) {
+            font-size: 20px;
+          }
+          span {
+            color: $sec_color;
+          }
+        }
+      }
+      button {
+        @include button;
+      }
+    }
+    text-transform: capitalize;
+    padding: 20px;
+    .list ul {
+      @include flex;
+      list-style: none;
+      position: absolute;
+      bottom: 30px;
+      @include myMediaQueries(medium) {
+        bottom: 0;
+      }
+      @include myMediaQueries(small) {
+        bottom: 0;
+      }
+      @include myMediaQueries(mobile) {
+        bottom: 0;
+      }
+      li {
+        background-color: $sec_color;
+        cursor: pointer;
+        border: 1px solid #333;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        &.active {
+          background-color: #ffffff;
+        }
+      }
+    }
+  }
+}
+.about {
+  text-transform: capitalize;
+  margin-bottom: 100px;
+  .about-head {
+    padding: 20px 10px;
+    h1 {
+      font-size: 50px;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+  }
+  .about-content {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 20px rgb(168, 164, 164);
+    padding: 30px 10px;
+    .text {
+      width: 50%;
+      padding-left: 40px;
+      h2 {
+        font-size: 35px;
+        font-weight: 500;
+      }
+      p {
+        font-size: 18px;
+        line-height: 2;
+      }
+    }
+    .image {
+      position: relative;
+      right: -5%;
+      max-height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    button {
+      background-color: $main_color;
+      color: #ffffff;
+      width: 50%;
+      @include button;
+    }
+    @include myMediaQueries(medium) {
+      flex-direction: column;
+      .text,
+      .image {
+        width: 100%;
+      }
+      .image {
+        right: 0;
+      }
+    }
+    @include myMediaQueries(small) {
+      flex-direction: column;
+      .text,
+      .image {
+        width: 100%;
+      }
+      .image {
+        right: 0;
+      }
+    }
+    @include myMediaQueries(mobile) {
+      flex-direction: column;
+      .text,
+      .image {
+        width: 100%;
+      }
+      .image {
+        right: 0;
+      }
+    }
+  }
+}
+.features {
+  text-transform: capitalize;
+  height: calc(100vh + 200px);
+  width: 100vw;
+  padding: 0 40px;
+  background-image: url(../images/bg.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @include myMediaQueries(mobile) {
+    background: $main_color;
+  }
+  .container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+  }
+  .text {
+    padding: 20px 0;
+    height: fit-content;
+    width: fit-content;
+    color: #ffffff;
+    h1 {
+      font-size: 40px;
+      text-transform: uppercase;
+      font-weight: normal;
+      width: 80%;
+      @include myMediaQueries(medium) {
+        font-size: 30px;
+      }
+      @include myMediaQueries(small) {
+        font-size: 30px;
+      }
+      @include myMediaQueries(mobile) {
+        font-size: 40px;
+      }
+      span {
+        display: block;
+        color: $sec_color;
+      }
+    }
+    p {
+      line-height: 2;
+      @include myMediaQueries(medium) {
+        font-size: 20px;
+      }
+      @include myMediaQueries(small) {
+        font-size: 18px;
+      }
+      @include myMediaQueries(mobile) {
+        font-size: 15px;
+      }
+    }
+  }
+}
+.services {
+  position: relative;
+  width: 100vw;
+  height: fit-content;
+  background-image: url(../images/service_bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  @extend .about;
+  margin-bottom: 0;
+  .services-head {
+    @extend .about-head;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    width: 100%;
+    height: 10px;
+    left: 0;
+    background-color: $sec_color;
+  }
+  ul {
+    &.list {
+      display: flex;
+      text-transform: uppercase;
+      list-style: none;
+      li {
+        @include transition;
+        padding: 10px 20px;
+        a {
+          color: #000;
+        }
+        &.active,
+        &:hover {
+          background-color: $main_color;
+          a {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+
+  button {
+    @include button;
+    background-color: $main_color;
+    color: #ffffff;
+    width: 300px;
+  }
+  .container {
+    .images {
+      margin: 50px auto;
+      padding-bottom: 100px;
+      width: fit-content;
+      height: fit-content;
+      @include flex;
+      .div-img {
+        @include flex;
+        width: 400px;
+        height: 400px;
+        @include myMediaQueries(small) {
+          width: 300px;
+          height: 300px;
+        }
+        @include myMediaQueries(mobile) {
+          width: 300px;
+          height: 300px;
+        }
+        &:nth-child(2) {
+          position: relative;
+          bottom: -100px;
+          left: -20px;
+          @include myMediaQueries(medium) {
+            bottom: 0;
+            left: 0;
+          }
+          @include myMediaQueries(small) {
+            bottom: 0;
+            left: 0;
+          }
+          @include myMediaQueries(mobile) {
+            bottom: 0;
+            left: 0;
+          }
+        }
+        &:nth-child(3) {
+          position: relative;
+          top: -110px;
+          left: -80px;
+          @include myMediaQueries(medium) {
+            top: 0;
+            left: 0;
+          }
+          @include myMediaQueries(small) {
+            top: 0;
+            left: 0;
+          }
+          @include myMediaQueries(mobile) {
+            top: 0;
+            left: 0;
+          }
+        }
+        &:nth-child(4) {
+          position: relative;
+          bottom: -300px;
+          left: -30%;
+          @include myMediaQueries(medium) {
+            bottom: 0;
+            left: 0;
+          }
+          @include myMediaQueries(small) {
+            bottom: 0;
+            left: 0;
+          }
+          @include myMediaQueries(mobile) {
+            bottom: 0;
+            left: 0;
+          }
+        }
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          @include flex;
+          @include transition;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          bottom: 0;
+          left: 0;
+          background-color: transparent;
+        }
+        &:hover {
+          &:before {
+            content: "reader will be distracted";
+            color: #ffffff;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.5em;
+            background-color: rgb(143, 18, 22, 0.4);
+          }
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      @include myMediaQueries(medium) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      @include myMediaQueries(small) {
+        flex-direction: column;
+      }
+      @include myMediaQueries(mobile) {
+        flex-direction: column;
+      }
+    }
+  }
+  .services-end {
+    width: 100vw;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.estimates {
+  width: 100vw;
+  background-color: $main_color;
+  height: fit-content;
+  padding-top: 40px;
+  text-transform: capitalize;
+  background-image: url(../images/cr00s.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  .container {
+    background-color: $sec_color;
+    @include flex;
+    @include myMediaQueries(medium) {
+      flex-direction: column;
+    }
+    @include myMediaQueries(small) {
+      flex-direction: column;
+    }
+    @include myMediaQueries(mobile) {
+      flex-direction: column;
+    }
+    .text {
+      @include myMediaQueries(medium) {
+        width: 100%;
+      }
+      @include myMediaQueries(small) {
+        width: 100%;
+      }
+      @include myMediaQueries(mobile) {
+        width: 100%;
+      }
+      width: 50%;
+      h1 {
+        font-size: 70px;
+        font-weight: 500;
+        color: #ffffff;
+      }
+      p {
+        color: #ffffff;
+      }
+      button {
+        @include button;
+        background-color: $main_color;
+        color: #ffffff;
+        &:hover {
+          background-color: #ffffff;
+          color: #000;
+        }
+      }
+    }
+    .img {
+      @include myMediaQueries(medium) {
+        width: 70%;
+      }
+      @include myMediaQueries(small) {
+        width: 100%;
+      }
+      @include myMediaQueries(mobile) {
+        width: 100%;
+      }
+      width: 45%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .img-2 {
+    width: 100vw;
+    margin-top: -2px;
+    img {
+      width: 100%;
+    }
+  }
+}

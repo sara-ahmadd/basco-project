@@ -1,0 +1,19 @@
+extends ./index.pug
+block append cssStyle
+  link(rel='stylesheet' href='./css/services.css')
+block pageContent
+  section.services
+      .container
+        .services-head
+          h1 services
+          p It is a long established fact that a reader will be distracted by the readable content
+        ul.list
+          li(class='active' id='residental'): a(href='#') residental
+          li(id='retinal-design'): a(href='#') retail design
+          li(id='space-adaptation'): a(href='#') space adaptation
+        .images
+          .div-img: img(src='./images/service_img1.png')
+          .div-img: img(src='./images/service_img2.png')
+          .div-img: img(src='./images/service_img3.png')
+          .div-img: img(src='./images/service_img4.png')
+        button: a(href='./services.html') read more
